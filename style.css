@@ -1,0 +1,962 @@
+/* ===== VARIÁVEIS DE CORES OFICIAIS UNB ===== */
+:root {
+    /* Cores Oficiais UNB - Baseadas na identidade visual */
+    --unb-azul-escuro: #003366;     /* Azul principal */
+    --unb-azul-medio: #0055A4;      /* Azul secundário */
+    --unb-azul-claro: #0077C8;      /* Azul destaque */
+    --unb-verde: #006633;           /* Verde institucional */
+    --unb-amarelo: #0077C8;;         /* Amarelo institucional */
+    --unb-dourado: #CC9900;         /* Dourado complementar */
+    --unb-cinza-escuro: #333333;    /* Cinza escuro */
+    --unb-cinza-medio: #666666;     /* Cinza médio */
+    --unb-cinza-claro: #999999;     /* Cinza claro */
+    --unb-branco: #FFFFFF;          /* Branco */
+    --unb-off-white: #F8F9FA;       /* Branco off */
+
+    /* Cores de Aplicação */
+    --primary: var(--unb-azul-escuro);
+    --primary-light: var(--unb-azul-medio);
+    --primary-lighter: var(--unb-azul-claro);
+    --secondary: var(--unb-verde);
+    --accent: var(--unb-amarelo);
+    --accent-dark: var(--unb-dourado);
+    
+    /* Cores de Texto */
+    --text-primary: var(--unb-azul-escuro);
+    --text-secondary: var(--unb-cinza-escuro);
+    --text-light: var(--unb-cinza-medio);
+    --text-white: var(--unb-branco);
+    
+    /* Cores de Fundo */
+    --bg-white: var(--unb-branco);
+    --bg-light: var(--unb-off-white);
+    --bg-primary: var(--unb-azul-escuro);
+    --bg-secondary: var(--unb-verde);
+    
+    /* Cores de Estado */
+    --success: var(--unb-verde);
+    --warning: var(--unb-amarelo);
+    --info: var(--unb-azul-claro);
+    
+    /* Tipografia */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    
+    /* Espaçamentos */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    
+    /* Bordas */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 3px rgba(0, 51, 102, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 51, 102, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 51, 102, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 51, 102, 0.1);
+}
+
+/* ===== RESET E CONFIGURAÇÕES GERAIS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    background: var(--bg-white);
+    overflow-x: hidden;
+}
+
+/* ===== TIPOGRAFIA ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.section {
+    padding: var(--space-3xl) 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== NAVEGAÇÃO ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--accent);
+    z-index: 1000;
+    padding: var(--space-sm) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.unb-logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unb-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.faculdade {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.departamento {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-xl);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: var(--space-xs) 0;
+}
+
+.nav-link:hover {
+    color: var(--primary-light);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--text-white);
+    padding: calc(var(--space-3xl) + 80px) 0 var(--space-3xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 102, 51, 0.1) 0%, transparent 50%);
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: var(--space-lg);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-white);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+    color: var(--text-white);
+}
+
+.title-accent {
+    background: #006633;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-xl);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-stats {
+    display: flex;
+    gap: var(--space-xl);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.visual-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    max-width: 300px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.card-icon {
+    font-size: 1.5rem;
+}
+
+.visual-card h3 {
+    color: var(--text-white);
+    font-size: 1.25rem;
+}
+
+.visual-card p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}
+
+/* ===== PROJETO SECTION ===== */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+}
+
+.project-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 51, 102, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-icon-large {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    color: var(--primary);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+}
+
+.project-card p {
+    color: var(--text-light);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+}
+
+.smart-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.smart-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    background: rgba(0, 51, 102, 0.05);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--primary);
+}
+
+.smart-letter {
+    background: var(--primary);
+    color: var(--text-white);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.challenge-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.metric {
+    text-align: center;
+    padding: var(--space-md);
+    background: rgba(0, 102, 51, 0.05);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0, 102, 51, 0.1);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: var(--space-xs);
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* ===== MÓDULOS SECTION ===== */
+.modules-section {
+    background: var(--bg-light);
+}
+
+.module-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 51, 102, 0.1);
+    transition: all 0.3s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
+}
+
+.module-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 2px solid rgba(0, 51, 102, 0.1);
+}
+
+.module-number {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: var(--text-white);
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md);
+}
+
+.module-title h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-xs);
+    color: var(--text-primary);
+}
+
+.module-duration {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.objective-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.objective-card h4 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-md);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.objective-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.goals-list {
+    list-style: none;
+}
+
+.goals-list li {
+    padding: var(--space-xs) 0;
+    color: var(--text-light);
+    position: relative;
+    padding-left: var(--space-md);
+    transition: color 0.3s ease;
+}
+
+.goals-list li:hover {
+    color: var(--text-primary);
+}
+
+.goals-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.assessment-card {
+    background: rgba(0, 51, 102, 0.03);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    border: 1px solid rgba(0, 51, 102, 0.1);
+}
+
+.assessment-card h4 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-md);
+    color: var(--primary);
+}
+
+.assessment-method {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+.method-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    color: var(--primary);
+}
+
+.method-content {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.method-content strong {
+    color: var(--text-primary);
+}
+
+/* ===== METODOLOGIA SECTION ===== */
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+}
+
+.methodology-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 51, 102, 0.1);
+    transition: all 0.3s ease;
+}
+
+.methodology-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
+}
+
+.methodology-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    color: var(--primary);
+}
+
+.methodology-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+}
+
+.methodology-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ===== EQUIPE SECTION ===== */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+}
+
+.team-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 51, 102, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent);
+}
+
+.team-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto var(--space-lg);
+    border: 4px solid rgba(0, 51, 102, 0.1);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .team-avatar {
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Fallback para imagens que não carregarem */
+.team-avatar:has(img[src=""]) {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.team-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.team-role {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.team-department,
+.team-id {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+
+/* ===== FOOTER ===== */
+.footer {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--text-white);
+    padding: var(--space-2xl) 0 var(--space-xl);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 102, 51, 0.1) 0%, transparent 50%);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+    position: relative;
+    z-index: 2;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.footer .unb-logo {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--accent);
+}
+
+.footer .unb-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* FILTRO REMOVIDO - Agora a logo aparece colorida */
+}
+
+.footer-info h4 {
+    color: var(--text-white);
+    margin-bottom: var(--space-xs);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.footer-info p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}
+
+.footer-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-project h4 {
+    color: var(--text-white);
+    margin-bottom: var(--space-sm);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.footer-project p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    margin-bottom: var(--space-xs);
+}
+
+.footer-copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: var(--space-lg);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Fallback para caso a logo não carregue */
+.footer .unb-logo:has(img[src=""]) {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.footer .unb-logo:has(img[src=""])::before {
+    content: 'UNB';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .objective-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        justify-content: center;
+    }
+    
+    /* Ajustes mobile para logo */
+    .unb-logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .brand-text {
+        display: none;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-lg);
+    }
+    
+    .team-avatar {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    
+    .module-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .assessment-method {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Ajustes extras para mobile */
+    .nav-brand {
+        gap: var(--space-xs);
+    }
+    
+    .unb-logo {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-card {
+        padding: var(--space-lg);
+    }
+}
+
+/* ===== ANIMAÇÕES E ESTADOS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Estados de foco para acessibilidade */
+button:focus,
+a:focus,
+.nav-link:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Fallback para logo */
+.unb-logo:has(img[src=""]) {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: var(--radius-sm);
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.unb-logo:has(img[src=""])::before {
+    content: 'UNB';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
